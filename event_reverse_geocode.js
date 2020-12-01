@@ -17,7 +17,7 @@ function init() {
         //Получаем координаты клика
         var coords = e.get('coords');
 
-        // Если метка уже создана – просто передвигаем ее.
+        // Если метка уже создана –  передвигаем ее.
         if (myPlacemark) {
             //Записываем новые координаты метки
             myPlacemark.geometry.setCoordinates(coords);
@@ -33,6 +33,7 @@ function init() {
                 getAddress(myPlacemark.geometry.getCoordinates());
             });
         }
+        //Выполняем обратное геокодирование
         getAddress(coords);
     });
 
@@ -46,9 +47,11 @@ function init() {
         });
     }
 
-    // Определяем адрес по координатам (обратное геокодирование).
+    // Функция определяющая адрес по координатам.
     function getAddress(coords) {
+        //Подпись иконки геообъекта
         myPlacemark.properties.set('iconCaption', 'поиск...');
+        //Определяем гео-данные по координатам
         ymaps.geocode(coords).then(function (res) {
             var firstGeoObject = res.geoObjects.get(0);
 
