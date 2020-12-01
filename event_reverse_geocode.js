@@ -3,12 +3,12 @@ ymaps.ready(init);
 function init() {
     //Переменная в которой хранится метка
     var myPlacemark,
-        //Создаем карту (объект класса Map)
+        //Создаем карту в контейнере 'map' (объект класса Map)
         myMap = new ymaps.Map('map', {
             center: [55.753994, 37.622093],
             zoom: 9
         }, {
-            searchControlProvider: 'yandex#search'
+            //searchControlProvider: 'yandex#search'
         });
 
     // Слушаем клик на карте.
