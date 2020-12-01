@@ -1,10 +1,12 @@
-//Метод ymaps.ready() запустит функцию init, когда API полностью прогрузится.
+//Метод ymaps.ready() запустит функцию init, когда Yandex.Map API полностью прогрузится.
 ymaps.ready(init);
 function init() {
+    //Переменная в которой хранится метка
     var myPlacemark,
+        //Создаем карту (объект класса Map)
         myMap = new ymaps.Map('map', {
             center: [55.753994, 37.622093],
-            zoom: 9
+            zoom: 14
         }, {
             searchControlProvider: 'yandex#search'
         });
