@@ -8,20 +8,25 @@ function init() {
             center: [55.753994, 37.622093],
             zoom: 9
         }, {
-            //searchControlProvider: 'yandex#search'
+            //Поиск по топонимам и организациям
+            searchControlProvider: 'yandex#search'
         });
 
     // Слушаем клик на карте.
     myMap.events.add('click', function (e) {
+        //Получаем координаты клика
         var coords = e.get('coords');
 
         // Если метка уже создана – просто передвигаем ее.
         if (myPlacemark) {
+            //Записываем новые координаты метки
             myPlacemark.geometry.setCoordinates(coords);
         }
-        // Если нет – создаем.
+        // Если нет – создаем новую метку.
         else {
+            //Создаем метку
             myPlacemark = createPlacemark(coords);
+            //Добавляем метку в коллекцию geoObjects
             myMap.geoObjects.add(myPlacemark);
             // Слушаем событие окончания перетаскивания на метке.
             myPlacemark.events.add('dragend', function () {
