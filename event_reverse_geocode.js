@@ -1,5 +1,5 @@
+//Метод ymaps.ready() запустит функцию init, когда API полностью прогрузится.
 ymaps.ready(init);
-
 function init() {
     var myPlacemark,
         myMap = new ymaps.Map('map', {

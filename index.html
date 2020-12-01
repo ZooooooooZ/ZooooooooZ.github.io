@@ -3,40 +3,18 @@
 <head>
     <title>Определение адреса клика на карте с помощью обратного геокодирования</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--
-        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
-        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
-    -->
+    <!-- Подключаем yandex.map API  -->
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=477b7c6c-1de9-4877-bc32-f29508ee82e4"
         type="text/javascript"></script>
+    <!-- Подключаем внешнишний файл JS, в котором будет реализован скрипт,
+         определяющий адрес по координатам и событие(click),при котором появляется адрес   -->
     <script src="event_reverse_geocode.js" type="text/javascript"></script>
-    <style type="text/css">
-        html,
-        body {
-            width: 100%;
-            height: 95%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial;
-            font-size: 14px;
-        }
-
-        #map {
-            width: 100%;
-            height: 95%;
-        }
-
-        .header {
-            padding: 5px;
-        }
-    </style>
+    <!-- Подключаем внешний файл css  -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <p class="header">Кликните по карте, чтобы узнать адрес</p>
     <div id="map"></div>
-
-
 </body>
 
 </html>
