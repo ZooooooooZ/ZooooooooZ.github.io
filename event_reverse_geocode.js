@@ -1,25 +1,24 @@
-//Метод ymaps.ready() запустит функцию init, когда Yandex.Map API полностью прогрузится.
+// Метод ymaps.ready() запустит функцию init, когда Yandex.Map API полностью прогрузится.
 ymaps.ready(init);
 function init() {
-    //Переменная в которой хранится метка
-    var myPlacemark,
-        //Создаем карту в контейнере 'map' (объект класса Map)
-        myMap = new ymaps.Map('map', {
-            center: [55.753994, 37.622093],
-            zoom: 9
-        }, {
-            //Поиск по топонимам и организациям
-            searchControlProvider: 'yandex#search'
-        });
+    // Переменная в которой хранится метка
+    let myPlacemark;
+    // Создаем карту в контейнере 'map' (объект класса Map)
+    const myMap = new ymaps.Map("map", {
+        center: [55.753994, 37.622093],
+        zoom: 9,
+    }, {
+        // Поиск по топонимам и организациям
+        searchControlProvider: "yandex#search"
+    });
 
     // Слушаем клик на карте.
-    myMap.events.add('click', function (e) {
-        //Получаем координаты клика
-        var coords = e.get('coords');
-
+    myMap.events.add("click", (e) => {
+        // Получаем координаты клика
+        let coords = e.get("coords");
         // Если метка уже создана –  передвигаем ее.
         if (myPlacemark) {
-            //Записываем новые координаты метки
+            // Записываем новые координаты метки
             myPlacemark.geometry.setCoordinates(coords);
         }
         // Если нет – создаем новую метку.
@@ -37,7 +36,7 @@ function init() {
         getAddress(coords);
     });
 
-    // Создание метки.
+    // Создание метки по полученным координатам.
     function createPlacemark(coords) {
         return new ymaps.Placemark(coords, {
             iconCaption: 'поиск...'
@@ -70,3 +69,6 @@ function init() {
         });
     }
 }
+
+var name
+var name
